@@ -1,69 +1,67 @@
 #include <stdio.h>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_font.h>
-#include <allegro5/allegro_primitives.h>
-#include <allegro5/allegro_image.h>  // Adicionar suporte a imagens
+#include <allegro5/allegro_image.h>
 #include "tela_inicio.h"
+#include "configuracoes.h"
 
+// Função para verificar se o mouse está sobre um botão
 bool mouse_sobre_botao(int mouse_x, int mouse_y, int botao_x, int botao_y, int largura_botao, int altura_botao) {
     return (mouse_x >= botao_x && mouse_x <= botao_x + largura_botao &&
         mouse_y >= botao_y && mouse_y <= botao_y + altura_botao);
 }
 
 bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
-    // Usar a fonte embutida
-    ALLEGRO_FONT* fonte = al_create_builtin_font();
-    if (!fonte) {
-        fprintf(stderr, "Falha ao criar a fonte embutida\n");
-        return false;
-    }
-
     // Carregar a imagem de fundo
-    ALLEGRO_BITMAP* fundo = al_load_bitmap("fundo_tela_teste.png");
+    ALLEGRO_BITMAP* fundo = al_load_bitmap("tela_de_inicio.png");
     if (!fundo) {
         fprintf(stderr, "Falha ao carregar a imagem de fundo\n");
-        al_destroy_font(fonte);
         return false;
     }
 
-    int largura_botao = 300, altura_botao = 80;
-    int botao_x = (960 - largura_botao) / 2, botao_y = 540 / 2 + 100;
-    bool iniciar_jogo = false;
+    // Largura e altura dos botões (ajustar conforme necessário)
+    int largura_botao = 100, altura_botao = 40;
 
-    while (!iniciar_jogo) {
+    // Coordenadas dos botões na imagem
+    int botao_play_x = 415, botao_play_y = 190; // Coordenadas do botão "Play"
+    int botao_settings_x = 415, botao_settings_y = 260; // Coordenadas do botão "Settings"
+    int botao_quit_x = 415, botao_quit_y = 330; // Coordenadas do botão "Quit"
+
+    bool iniciar_jogo = false;
+    bool rodando = true;
+
+    while (rodando) {
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
 
         if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-            al_destroy_font(fonte);
             al_destroy_bitmap(fundo); // Destruir o bitmap ao fechar o jogo
             return false;
         }
         else if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
-            if (mouse_sobre_botao(ev.mouse.x, ev.mouse.y, botao_x, botao_y, largura_botao, altura_botao)) {
+            int mouse_x = ev.mouse.x;
+            int mouse_y = ev.mouse.y;
+
+            // Verificar se o clique foi sobre o botão "Play"
+            if (mouse_sobre_botao(mouse_x, mouse_y, botao_play_x, botao_play_y, largura_botao, altura_botao)) {
                 iniciar_jogo = true;
+                rodando = false;  // Para sair do loop e iniciar o jogo
             }
-        }
-        else if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
-            if (ev.keyboard.keycode == ALLEGRO_KEY_ENTER) {
-                iniciar_jogo = true;
+            // Verificar se o clique foi sobre o botão "Settings"
+            else if (mouse_sobre_botao(mouse_x, mouse_y, botao_settings_x, botao_settings_y, largura_botao, altura_botao)) {
+                configuracoes(event_queue);  // Abre o menu de configurações
+            }
+            // Verificar se o clique foi sobre o botão "Quit"
+            else if (mouse_sobre_botao(mouse_x, mouse_y, botao_quit_x, botao_quit_y, largura_botao, altura_botao)) {
+                rodando = false;  // Fecha o programa
             }
         }
 
         // Desenhar a tela de início com a imagem de fundo
         al_draw_bitmap(fundo, 0, 0, 0);  // Desenhar a imagem de fundo na posição (0, 0)
-
-        // Desenhar o botão
-        al_draw_filled_rectangle(botao_x, botao_y, botao_x + largura_botao, botao_y + altura_botao, al_map_rgb(100, 100, 255));
-        al_draw_text(fonte, al_map_rgb(255, 255, 255), botao_x + largura_botao / 2, botao_y + altura_botao / 4, ALLEGRO_ALIGN_CENTRE, "Iniciar Jogo");
-
-        // Exibir a mensagem de instrução
-        al_draw_text(fonte, al_map_rgb(255, 255, 255), 960 / 2, 540 / 2, ALLEGRO_ALIGN_CENTRE, "Pressione ENTER ou clique no botao");
-
         al_flip_display();
     }
 
-    al_destroy_font(fonte);
     al_destroy_bitmap(fundo);  // Limpeza da imagem de fundo
-    return true;
+    return iniciar_jogo;
 }
