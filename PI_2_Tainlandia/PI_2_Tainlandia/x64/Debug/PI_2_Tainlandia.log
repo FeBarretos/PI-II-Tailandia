@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 ﻿  fase1.c
 /fase1.c(1,1): error C1083: Não é possível abrir arquivo fonte: 'fase1.c': No such file or directory
   (compilando o arquivo fonte '/fase1.c')
   
+=======
+﻿  jogo.c
+  PI_2_Tainlandia.vcxproj -> C:\Users\willi\OneDrive - SENAC - SP\Documentos\GitHub\PI-II-Tailandia\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe
+>>>>>>> Stashed changes

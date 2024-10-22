@@ -10,6 +10,8 @@
 #include <allegro5/allegro_acodec.h>
 #include "tela_inicio.h"
 #include "jogo.h"
+#include <allegro5/allegro_acodec.h>
+#include <allegro5/allegro_audio.h>
 
 int main() {
     // Inicializar Allegro
@@ -27,6 +29,10 @@ int main() {
     al_install_keyboard();
     al_install_mouse();
     al_install_audio();
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     // Criar o display
     ALLEGRO_DISPLAY* display = al_create_display(960, 540);
     if (!display) {

@@ -28,7 +28,11 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
 
     float frame = 0.f;
+<<<<<<< Updated upstream
     int pos_x = 450, pos_y = 650;
+=======
+    int pos_x = 450, pos_y = 200;
+>>>>>>> Stashed changes
     int current_frame_y = 210;
     int key[4] = { 0, 0, 0, 0 };
     double last_time = al_get_time();

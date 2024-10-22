@@ -6,5 +6,9 @@
 void configuracoes(ALLEGRO_EVENT_QUEUE* event_queue) {
     // Implementação futura
     printf("Abriu configurações!\n");
+<<<<<<< Updated upstream
    
+=======
+    ALLEGRO_BITMAP* CONFIG 
+>>>>>>> Stashed changes
 }
