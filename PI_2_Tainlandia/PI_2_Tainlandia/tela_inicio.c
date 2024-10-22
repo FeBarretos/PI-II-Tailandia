@@ -4,6 +4,12 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_image.h>  // Adicionar suporte a imagens
 #include "tela_inicio.h"
+<<<<<<< Updated upstream
+=======
+#include "configuracoes.h"
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
+>>>>>>> Stashed changes
 
 bool mouse_sobre_botao(int mouse_x, int mouse_y, int botao_x, int botao_y, int largura_botao, int altura_botao) {
     return (mouse_x >= botao_x && mouse_x <= botao_x + largura_botao &&
@@ -17,6 +23,14 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
         fprintf(stderr, "Falha ao criar a fonte embutida\n");
         return false;
     }
+    // Carrega musica de fundo
+    al_reserve_samples(1);
+    ALLEGRO_SAMPLE* music = al_load_sample("music.ogg");
+    ALLEGRO_SAMPLE_INSTANCE* musicInst = al_create_sample_instance(music);
+    al_set_sample_instance_playmode(musicInst, ALLEGRO_PLAYMODE_LOOP);
+    al_attach_sample_instance_to_mixer(musicInst, al_get_default_mixer());
+
+    
 
     // Carregar a imagem de fundo
     ALLEGRO_BITMAP* fundo = al_load_bitmap("fundo_tela_teste.png");
@@ -30,13 +44,22 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
     int botao_x = (960 - largura_botao) / 2, botao_y = 540 / 2 + 100;
     bool iniciar_jogo = false;
 
+<<<<<<< Updated upstream
     while (!iniciar_jogo) {
+=======
+    //Toca musica
+    al_play_sample_instance(musicInst);
+
+    while (rodando) {
+>>>>>>> Stashed changes
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
 
         if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             al_destroy_font(fonte);
             al_destroy_bitmap(fundo); // Destruir o bitmap ao fechar o jogo
+            al_destroy_sample(music);
+            al_destroy_sample_instance(musicInst);
             return false;
         }
         else if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
@@ -49,6 +72,8 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
                 iniciar_jogo = true;
             }
         }
+
+
 
         // Desenhar a tela de início com a imagem de fundo
         al_draw_bitmap(fundo, 0, 0, 0);  // Desenhar a imagem de fundo na posição (0, 0)
@@ -63,7 +88,12 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
         al_flip_display();
     }
 
+<<<<<<< Updated upstream
     al_destroy_font(fonte);
+=======
+    al_destroy_sample(music);
+    al_destroy_sample_instance(musicInst);
+>>>>>>> Stashed changes
     al_destroy_bitmap(fundo);  // Limpeza da imagem de fundo
     return true;
 }

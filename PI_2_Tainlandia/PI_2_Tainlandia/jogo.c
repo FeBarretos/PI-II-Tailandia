@@ -12,7 +12,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     }
 
     float frame = 0.f;
-    int pos_x = 250, pos_y = 400;
+    int pos_x = 450, pos_y = 600;
     int current_frame_y = 210;
     int key[4] = { 0, 0, 0, 0 };
     double last_time = al_get_time();
@@ -53,6 +53,24 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             frame += 0.04f;
             if (frame > 4) {
                 frame -= 4;
+            }
+
+            if (pos_y < 125 && pos_x > 400 && pos_x < 500) {
+                pos_x = 450;
+                pos_y = 600;
+            }
+
+            if (pos_y < 125 && pos_x > 600 && pos_x < 700) {
+                pos_x = 450;
+                pos_y = 600;
+            }
+
+            if (pos_y < 125 && pos_x > 200 && pos_x < 300) {
+                pos_x = 450;
+                pos_y = 600;
+            }
+            if (pos_y <= 124) {
+                pos_y = 124;
             }
 
             al_clear_to_color(al_map_rgb(255, 255, 255));
