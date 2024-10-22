@@ -4,21 +4,42 @@
   "Documents": [
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
       "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\OneDrive - SENAC - SP\\Documentos\\GitHub\\PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\configuracoes.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\configuracoes.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+=======
+>>>>>>> Stashed changes
       "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\OneDrive - SENAC - SP\\Documentos\\GitHub\\PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\jogo.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\jogo.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+<<<<<<< Updated upstream
+=======
+      "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\OneDrive - SENAC - SP\\Documentos\\GitHub\\PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\jogo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\jogo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\OneDrive - SENAC - SP\\Documentos\\GitHub\\PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+>>>>>>> Stashed changes
       "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\OneDrive - SENAC - SP\\Documentos\\GitHub\\PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\tela_inicio.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\tela_inicio.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\OneDrive - SENAC - SP\\Documentos\\GitHub\\PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\jogo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\jogo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+>>>>>>> Stashed changes
+=======
+      "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\OneDrive - SENAC - SP\\Documentos\\GitHub\\PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\tela_inicio.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\tela_inicio.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
 >>>>>>> Stashed changes
@@ -27,6 +48,9 @@
     },
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
       "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\OneDrive - SENAC - SP\\Documentos\\GitHub\\PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\configuracoes.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\configuracoes.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -89,8 +113,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
 >>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-20T22:15:55.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T22:15:55.534Z"
             },
             {
               "$type": "Document",
@@ -106,8 +129,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\configuracoes.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-20T22:15:16.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T22:15:16.195Z"
             },
             {
               "$type": "Document",
@@ -123,8 +145,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\jogo.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-22T18:03:10.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T18:03:10.946Z"
             },
             {
               "$type": "Document",
@@ -171,8 +192,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\tela_inicio.c",
               "ViewState": "AgIAACoAAAAAAAAAAAAAACkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-22T18:02:36.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T18:02:36.674Z"
             },
             {
               "$type": "Document",
@@ -184,8 +204,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\tela_inicio.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-22T18:01:57.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T18:01:57.974Z"
             },
             {
               "$type": "Document",
