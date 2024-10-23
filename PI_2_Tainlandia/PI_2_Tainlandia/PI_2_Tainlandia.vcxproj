@@ -141,6 +141,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="configuracoes.c" />
+    <ClCompile Include="fase_2.c" />
+    <ClCompile Include="fase_3.c" />
     <ClCompile Include="jogo.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="PI_2_Tainlandia.cpp" />
@@ -150,6 +153,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="configuracoes.h" />
+    <ClInclude Include="fase_2.h" />
+    <ClInclude Include="fase_3.h" />
     <ClInclude Include="jogo.h" />
     <ClInclude Include="tela_inicio.h" />
   </ItemGroup>

@@ -8,6 +8,8 @@
 #include <allegro5/mouse.h>
 #include "tela_inicio.h"
 #include "jogo.h"
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 
 int main() {
     // Inicializar Allegro
@@ -21,8 +23,10 @@ int main() {
     al_init_font_addon();
     al_init_ttf_addon();
     al_init_primitives_addon();
+    al_init_acodec_addon();
     al_install_keyboard();
     al_install_mouse();
+    al_install_audio();
 
     // Criar o display
     ALLEGRO_DISPLAY* display = al_create_display(960, 540);
