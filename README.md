@@ -1,2 +1,2 @@
 # P.I. 2 semestre
-Academia de Atenas 🏛️
+Academia de Atenas 🏛
