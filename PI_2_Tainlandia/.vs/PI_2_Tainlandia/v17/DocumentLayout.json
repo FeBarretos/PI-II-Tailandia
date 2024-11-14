@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\jogo.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\jogo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\jogo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\tela_inicio.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\tela_inicio.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\tela_inicio.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\tela_inicio.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\jogo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\jogo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|solutionrelative:PI_2_Tainlandia\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{014C04A6-A612-42E0-9402-96B45795A4FB}|PI_2_Tainlandia\\PI_2_Tainlandia.vcxproj|C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\configuracoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -70,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "jogo.h",
               "DocumentMoniker": "C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\jogo.h",
               "RelativeDocumentMoniker": "PI_2_Tainlandia\\jogo.h",
@@ -88,26 +88,27 @@
               "RelativeDocumentMoniker": "PI_2_Tainlandia\\jogo.c",
               "ToolTip": "C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\jogo.c",
               "RelativeToolTip": "PI_2_Tainlandia\\jogo.c",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAFYAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAEgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-09-22T18:03:41.224Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "tela_inicio.c",
               "DocumentMoniker": "C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\tela_inicio.c",
               "RelativeDocumentMoniker": "PI_2_Tainlandia\\tela_inicio.c",
               "ToolTip": "C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\tela_inicio.c",
               "RelativeToolTip": "PI_2_Tainlandia\\tela_inicio.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-22T18:02:36.674Z"
+              "WhenOpened": "2024-09-22T18:02:36.674Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "tela_inicio.h",
               "DocumentMoniker": "C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\tela_inicio.h",
               "RelativeDocumentMoniker": "PI_2_Tainlandia\\tela_inicio.h",
@@ -115,11 +116,12 @@
               "RelativeToolTip": "PI_2_Tainlandia\\tela_inicio.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-22T18:01:57.974Z"
+              "WhenOpened": "2024-09-22T18:01:57.974Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "main.c",
               "DocumentMoniker": "C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\main.c",
               "RelativeDocumentMoniker": "PI_2_Tainlandia\\main.c",
