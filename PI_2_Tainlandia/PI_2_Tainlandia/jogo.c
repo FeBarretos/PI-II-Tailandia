@@ -11,6 +11,10 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
         return;
     }
 
+    //Contadores de erro e vida
+    int contVida = 3;
+    int contFase = 0;
+
     // Obter dimensões do sprite
     int sprite_width = 60; // largura do sprite
     int sprite_height = 91; // altura do sprite
@@ -70,19 +74,51 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 frame -= 4;
             }
 
-            if (pos_y < 125 && pos_x > 400 && pos_x < 500) {
-                pos_x = 450;
-                pos_y = 600;
-            }
-
-            if (pos_y < 125 && pos_x > 600 && pos_x < 700) {
-                fase_2(display, event_queue);
-            }
-
+            //porta 1
             if (pos_y < 125 && pos_x > 200 && pos_x < 300) {
-                pos_x = 450;
-                pos_y = 600;
+                if (contFase == 0) {
+                    contFase = 1;
+                    pos_x = 450;
+                    pos_y = 600;
+                  }else {
+                    pos_x = 450;
+                    pos_y = 600;
+                    contVida--;
+                }
             }
+
+            //porta 2
+            if (pos_y < 125 && pos_x > 400 && pos_x < 500) {
+                if (contFase == 1) {
+                    contFase = 2;
+                    pos_x = 450;
+                    pos_y = 600;
+                }
+                else {
+                    pos_x = 450;
+                    pos_y = 600;
+                    contVida--;
+                }
+            }
+                
+            //porta 3
+            if (pos_y < 125 && pos_x > 600 && pos_x < 700) {
+                if (contFase == 2) {
+                    fase_2(display, event_queue);
+                }
+                else {
+                    pos_x = 450;
+                    pos_y = 600;
+                    contVida--;
+                
+                }
+
+            }
+            // Caso perca todas as vidas
+            if (contVida <= 0) {
+                
+            }
+
             if (pos_y <= 124) {
                 pos_y = 124;
             }
