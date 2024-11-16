@@ -12,7 +12,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     }
 
     //Contadores de erro e vida
-    int contVida = 3;
+    extern int contVida;
     int contFase = 0;
 
     // Obter dimensões do sprite
@@ -29,7 +29,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     int key[4] = { 0, 0, 0, 0 };
     double last_time = al_get_time();
     const float FRAME_DURATION = 1.0 / 60.0;
-
+   
     bool playing = true;
     while (playing) {
         ALLEGRO_EVENT ev;
@@ -80,10 +80,12 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     contFase = 1;
                     pos_x = 450;
                     pos_y = 600;
+                 
                   }else {
                     pos_x = 450;
                     pos_y = 600;
                     contVida--;
+                    
                 }
             }
 
@@ -93,12 +95,14 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     contFase = 2;
                     pos_x = 450;
                     pos_y = 600;
+
                 }
                 else {
                     pos_x = 450;
                     pos_y = 600;
                     contVida--;
-                    contFase--;
+                   
+                    
                 }
             }
                 
@@ -111,12 +115,13 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     pos_x = 450;
                     pos_y = 600;
                     contVida--;
-                    contFase--;
+                    
                 }
 
             }
             // Caso perca todas as vidas
             if (contVida <= 0) {
+                playing = false;
                 
             }
 
@@ -133,7 +138,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
         }
     }
-
+    
     al_destroy_bitmap(sprite);
     al_destroy_bitmap(background);
 }

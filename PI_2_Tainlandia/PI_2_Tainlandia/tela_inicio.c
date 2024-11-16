@@ -31,9 +31,9 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
     int largura_botao = 100, altura_botao = 40;
 
     // Coordenadas dos botões na imagem
-    int botao_play_x = 415, botao_play_y = 190; // Coordenadas do botão "Play"
+    int botao_play_x = 415, botao_play_y = 195; // Coordenadas do botão "Play"
     int botao_settings_x = 415, botao_settings_y = 260; // Coordenadas do botão "Settings"
-    int botao_quit_x = 415, botao_quit_y = 330; // Coordenadas do botão "Quit"
+    int botao_quit_x = 415, botao_quit_y = 385; // Coordenadas do botão "Quit"
 
     bool iniciar_jogo = false;
     bool rodando = true;
