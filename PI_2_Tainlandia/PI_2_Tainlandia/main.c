@@ -14,10 +14,14 @@
 // Variável da vida
 int contVida = 3;
 
+// Variavel Volume
+int Volume = 1;
+
 // Estados do jogo
 typedef enum {
     TELA_INICIO,
     TELA_JOGO,
+    TELA_CONFIG,
     SAIR
 } EstadoJogo;
 
@@ -76,6 +80,13 @@ int main() {
                 estadoAtual = SAIR; // Encerra o programa ao finalizar o jogo
             }
             break;
+
+        case TELA_CONFIG:
+            configuracoes(display, event_queue);
+            estadoAtual = TELA_INICIO;
+            break;
+
+
 
         case SAIR:
             // Pode incluir lógica de saída, se necessário

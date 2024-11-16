@@ -13,6 +13,16 @@ bool mouse_sobre_botao(int mouse_x, int mouse_y, int botao_x, int botao_y, int l
         mouse_y >= botao_y && mouse_y <= botao_y + altura_botao);
 }
 
+// Função para ajustar o volume da música
+void ajustar_volume(ALLEGRO_SAMPLE_INSTANCE* musicInst, int Volume) {
+    if (Volume == 1) {
+        al_set_sample_instance_gain(musicInst, 1.0); // Som máximo
+    }
+    else if (Volume == 0) {
+        al_set_sample_instance_gain(musicInst, 0.0); // Som mudo
+    }
+}
+
 bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
     // Carregar a imagem de fundo
     ALLEGRO_BITMAP* fundo = al_load_bitmap("tela_inicial.png");
@@ -20,12 +30,27 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
         fprintf(stderr, "Falha ao carregar a imagem de fundo\n");
         return false;
     }
-    //Carrega musica de fundo
+
+    // Variável do volume (exemplo)
+    extern int Volume;  // Se Volume for 1 (som máximo), 0 (mudo)
+
+    // Carregar a música de fundo
     al_reserve_samples(1);
     ALLEGRO_SAMPLE* music = al_load_sample("music.ogg");
+    if (!music) {
+        fprintf(stderr, "Falha ao carregar a música\n");
+        return false;
+    }
+
     ALLEGRO_SAMPLE_INSTANCE* musicInst = al_create_sample_instance(music);
     al_set_sample_instance_playmode(musicInst, ALLEGRO_PLAYMODE_LOOP);
     al_attach_sample_instance_to_mixer(musicInst, al_get_default_mixer());
+
+    // Reproduzir a música
+    al_play_sample_instance(musicInst);
+
+    // Ajustar volume de acordo com a variável Volume
+    ajustar_volume(musicInst, Volume);
 
     // Largura e altura dos botões (ajustar conforme necessário)
     int largura_botao = 100, altura_botao = 40;
@@ -38,7 +63,6 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
     bool iniciar_jogo = false;
     bool rodando = true;
 
-    al_play_sample_instance(musicInst);
     while (rodando) {
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
@@ -68,7 +92,7 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
             }
         }
 
-        // Desenhar a tela de início com a imagem de fundo
+        // Atualizar a tela
         al_draw_bitmap(fundo, 0, 0, 0);  // Desenhar a imagem de fundo na posição (0, 0)
         al_flip_display();
     }
