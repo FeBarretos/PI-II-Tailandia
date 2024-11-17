@@ -5,15 +5,17 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 
+
 void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* sprite = al_load_bitmap("personagem_jogavel.png");
     ALLEGRO_BITMAP* background = al_load_bitmap("mapa_fase1.png");
     ALLEGRO_BITMAP* vida = al_load_bitmap("vida_coracao.png");
-    if (!sprite || !background || !vida) {
+    ALLEGRO_BITMAP* caixa_dialogo = al_load_bitmap("caixa_dialogo.png");
+    if (!sprite || !background || !vida || !caixa_dialogo) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
     }
-    ALLEGRO_FONT* fonte = al_load_ttf_font("Arial.ttf", 24, 0);
+    ALLEGRO_FONT* fonte = al_load_ttf_font("LiberationSans-Regular.ttf", 24, 0);
     if (!fonte) {
         fprintf(stderr, "Falha ao carregar a fonte.\n");
         return -1;
@@ -23,9 +25,15 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     extern int contVida;
     int contFase = 0;
 
+    // controle de pergunta
+    bool mostrando_pergunta = false;
+    bool mostrando_pergunta2 = false;
+    bool mostrando_pergunta3 = false;
     // Variáveis para mensagens contextuais
     char mensagem[50] = "";
     double tempoMensagem = 0;
+
+   
 
     // Obter dimensões do sprite
     int sprite_width = 60; // largura do sprite
@@ -98,7 +106,6 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     pos_x = 450;
                     pos_y = 600;
                     contVida--;
-                  
                 }
             }
 
@@ -114,7 +121,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     pos_x = 450;
                     pos_y = 600;
                     contVida--;
-                 
+
                 }
             }
 
@@ -127,7 +134,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     pos_x = 450;
                     pos_y = 600;
                     contVida--;
-                    
+
                 }
             }
 
@@ -137,13 +144,67 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
             if (pos_y <= 124) {
                 pos_y = 124;
-             
+
+            }
+
+            //pergunta 1 
+            if (pos_y > 325 && pos_y < 370  && pos_x > 270 && pos_x < 340 && contFase == 0) {
+                mostrando_pergunta = true;
+            }
+            else {
+                mostrando_pergunta = false;
+            }
+           
+            //pergunta 2
+            if (pos_y > 325 && pos_y < 370 && pos_x > 270 && pos_x < 340 && contFase == 1) {
+                mostrando_pergunta2 = true;
+            }
+            else {
+                mostrando_pergunta2 = false;
+            }
+
+            //pergunta 3 
+            if (pos_y > 325 && pos_y < 370 && pos_x > 270 && pos_x < 340 && contFase == 2) {
+                mostrando_pergunta3 = true;
+            }
+            else {
+                mostrando_pergunta3 = false;
             }
 
             al_clear_to_color(al_map_rgb(255, 255, 255));
             al_draw_bitmap(background, 0, 0, 0);
 
-            // Exibir texto das vidas e fase
+           
+            if (mostrando_pergunta) {
+                al_draw_bitmap(caixa_dialogo, 0, 0, 0);
+                // Exibi a pergunta
+                char textoPergunta1[] = "Questao 1 - Usando Bhaskara, qual o resultado da equacao?";
+                char ctextoPergunta1[] = "3x(ao quadrado) - 15x + 12 = 0";
+                al_draw_text(fonte, al_map_rgb(0, 0, 0), 590, 265, ALLEGRO_ALIGN_CENTER, textoPergunta1);
+                al_draw_text(fonte, al_map_rgb(0, 0, 0), 590, 285, ALLEGRO_ALIGN_CENTER, ctextoPergunta1);
+            }
+
+            if (mostrando_pergunta2) {
+                al_draw_bitmap(caixa_dialogo, 0, 0, 0);
+                // Exibi a pergunta
+                char textoPergunta1[] = "Questao 2 - Usando Bhaskara, qual o resultado da equacao?";
+                char ctextoPergunta1[] = "x(ao quadrado) + 5x - 14 = 0";
+                al_draw_text(fonte, al_map_rgb(0, 0, 0), 590, 265, ALLEGRO_ALIGN_CENTER, textoPergunta1);
+                al_draw_text(fonte, al_map_rgb(0, 0, 0), 590, 285, ALLEGRO_ALIGN_CENTER, ctextoPergunta1);
+            }
+
+            if (mostrando_pergunta3) {
+                al_draw_bitmap(caixa_dialogo, 0, 0, 0);
+                // Exibi a pergunta
+                char textoPergunta1[] = "Questao 3 - Usando Bhaskara, qual o resultado da equacao?";
+                char ctextoPergunta1[] = "x(ao quadrado) + 2x - 15 = 0";
+                al_draw_text(fonte, al_map_rgb(0, 0, 0), 590, 265, ALLEGRO_ALIGN_CENTER, textoPergunta1);
+                al_draw_text(fonte, al_map_rgb(0, 0, 0), 590, 285, ALLEGRO_ALIGN_CENTER, ctextoPergunta1);
+            }
+           
+                
+
+            // Exibir texto das vidas
             char textoVidas[50];
             snprintf(textoVidas, 50, "        X %d", contVida);
             al_draw_text(fonte, al_map_rgb(255, 0, 0), 5, 35, ALLEGRO_ALIGN_LEFT, textoVidas);
@@ -161,7 +222,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             float y = 5;  // Posição Y
 
             // Desenhar o coração com a escala definida
-            al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x, y, largura_coracao* escala_x, altura_coracao* escala_y, 0);
+            al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
 
 
 
@@ -174,5 +235,6 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(vida);
     al_destroy_bitmap(sprite);
     al_destroy_bitmap(background);
+    al_destroy_bitmap(caixa_dialogo);
     al_destroy_font(fonte);
 }
