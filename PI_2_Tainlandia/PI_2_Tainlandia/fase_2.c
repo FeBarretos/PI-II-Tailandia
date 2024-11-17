@@ -5,8 +5,8 @@
 
 // Função da Fase 2
 void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
-    ALLEGRO_BITMAP* sprite = al_load_bitmap("personagem_jogavel.png");
-    ALLEGRO_BITMAP* background = al_load_bitmap("labirintoteste1.png");
+    ALLEGRO_BITMAP* sprite = al_load_bitmap("images/personagem_jogavel.png");
+    ALLEGRO_BITMAP* background = al_load_bitmap("images/labirintoteste1.png");
     if (!sprite || !background) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;

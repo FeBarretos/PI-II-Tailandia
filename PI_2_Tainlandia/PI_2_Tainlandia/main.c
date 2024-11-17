@@ -6,10 +6,11 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/keyboard.h>
 #include <allegro5/mouse.h>
+#include "tela_inicio.h"
+#include "fase_1.h"
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
 #include "tela_inicio.h"
-#include "jogo.h"
 
 // Variável da vida
 int contVida = 3;
@@ -55,6 +56,7 @@ int main() {
     al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_mouse_event_source());
 
+
     // Estado inicial do jogo
     EstadoJogo estadoAtual = TELA_INICIO;
 
@@ -62,7 +64,7 @@ int main() {
     while (estadoAtual != SAIR) {
         switch (estadoAtual) {
         case TELA_INICIO:
-            if (tela_inicio(event_queue)) {
+            if (tela_inicio(display,event_queue)) {
                 estadoAtual = TELA_JOGO; // Transita para o jogo
             }
             else {
@@ -93,6 +95,15 @@ int main() {
             break;
         }
     }
+
+    // Executar tela de início
+        if (!tela_inicio(display, event_queue)) {
+        return 0; // Fechar o programa se o usuário sair da tela de início
+    }
+
+    // Executar o jogo
+    fase_1(display, event_queue);
+
 
     // Finalização
     al_destroy_display(display);

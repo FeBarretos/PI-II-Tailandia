@@ -24,7 +24,7 @@
     <ClCompile Include="tela_inicio.c">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="jogo.c">
+    <ClCompile Include="fase_1.c">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="configuracoes.c">
@@ -36,6 +36,9 @@
     <ClCompile Include="fase_3.c">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="como_jogar.c">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -44,7 +47,7 @@
     <ClInclude Include="tela_inicio.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="jogo.h">
+    <ClInclude Include="fase_1.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="configuracoes.h">
@@ -54,6 +57,9 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="fase_3.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="como_jogar.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
