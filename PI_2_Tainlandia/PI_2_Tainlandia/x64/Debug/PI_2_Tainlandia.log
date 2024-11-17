@@ -1,2 +1,4 @@
-﻿  main.c
+﻿  jogo.c
+C:\Users\willi\Downloads\GITHUB-PI-II-Tailandia\PI_2_Tainlandia\PI_2_Tainlandia\jogo.c(19,9): warning C4098: 'jogo': função 'void' retornando um valor
+C:\Users\willi\Downloads\GITHUB-PI-II-Tailandia\PI_2_Tainlandia\PI_2_Tainlandia\jogo.c(124,21): warning C4013: 'fase_2' indefinido; assumindo extern retornando int
   PI_2_Tainlandia.vcxproj -> C:\Users\willi\Downloads\GITHUB-PI-II-Tailandia\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe

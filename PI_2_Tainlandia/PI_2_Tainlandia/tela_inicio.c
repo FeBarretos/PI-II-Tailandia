@@ -15,7 +15,7 @@ bool mouse_sobre_botao(int mouse_x, int mouse_y, int botao_x, int botao_y, int l
 
 bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
     // Carregar a imagem de fundo
-    ALLEGRO_BITMAP* fundo = al_load_bitmap("tela_de_inicio.png");
+    ALLEGRO_BITMAP* fundo = al_load_bitmap("tela inicial.png");
     if (!fundo) {
         fprintf(stderr, "Falha ao carregar a imagem de fundo\n");
         return false;

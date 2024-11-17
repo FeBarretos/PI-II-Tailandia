@@ -2,18 +2,30 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include "jogo.h"
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
 
 void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* sprite = al_load_bitmap("personagem_jogavel.png");
-    ALLEGRO_BITMAP* background = al_load_bitmap("mapa1_sem_guarda.png");
-    if (!sprite || !background) {
+    ALLEGRO_BITMAP* background = al_load_bitmap("mapa_fase1.png");
+    ALLEGRO_BITMAP* vida = al_load_bitmap("vida_coracao.png");
+    if (!sprite || !background || !vida) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
+    }
+    ALLEGRO_FONT* fonte = al_load_ttf_font("Arial.ttf", 24, 0);
+    if (!fonte) {
+        fprintf(stderr, "Falha ao carregar a fonte.\n");
+        return -1;
     }
 
     // contador de vida e de erro
     extern int contVida;
     int contFase = 0;
+
+    // Variáveis para mensagens contextuais
+    char mensagem[50] = "";
+    double tempoMensagem = 0;
 
     // Obter dimensões do sprite
     int sprite_width = 60; // largura do sprite
@@ -86,7 +98,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     pos_x = 450;
                     pos_y = 600;
                     contVida--;
-
+                  
                 }
             }
 
@@ -102,8 +114,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     pos_x = 450;
                     pos_y = 600;
                     contVida--;
-
-
+                 
                 }
             }
 
@@ -116,9 +127,8 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     pos_x = 450;
                     pos_y = 600;
                     contVida--;
-
+                    
                 }
-
             }
 
             if (contVida <= 0) {
@@ -127,18 +137,42 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
             if (pos_y <= 124) {
                 pos_y = 124;
+             
             }
 
             al_clear_to_color(al_map_rgb(255, 255, 255));
             al_draw_bitmap(background, 0, 0, 0);
+
+            // Exibir texto das vidas e fase
+            char textoVidas[50];
+            snprintf(textoVidas, 50, "        X %d", contVida);
+            al_draw_text(fonte, al_map_rgb(255, 0, 0), 5, 35, ALLEGRO_ALIGN_LEFT, textoVidas);
+
+            // Definir o tamanho desejado para o coração
+            float escala_x = 0.15f; // 20% do tamanho original
+            float escala_y = 0.15f; // 20% do tamanho original
+
+            // Obter as dimensões da imagem original
+            int largura_coracao = al_get_bitmap_width(vida);
+            int altura_coracao = al_get_bitmap_height(vida);
+
+            // Coordenadas para onde a imagem será desenhada
+            float x = 10;  // Posição X
+            float y = 5;  // Posição Y
+
+            // Desenhar o coração com a escala definida
+            al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x, y, largura_coracao* escala_x, altura_coracao* escala_y, 0);
+
+
+
             al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
             al_flip_display();
             last_time = current_time;
 
-
         }
     }
-
+    al_destroy_bitmap(vida);
     al_destroy_bitmap(sprite);
     al_destroy_bitmap(background);
+    al_destroy_font(fonte);
 }
