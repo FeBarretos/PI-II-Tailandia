@@ -1,2 +1,4 @@
-﻿main.obj : error LNK2019: símbolo externo não resolvido, jogo, referenciado na função main
-C:\Users\barre\Documents\GitHub\PI-II-Tailandia\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe : fatal error LNK1120: 1 externo não resolvidos
+﻿  fase_1.c
+C:\Users\willi\Downloads\GITHUB-PI-II-Tailandia\PI_2_Tainlandia\PI_2_Tainlandia\fase_1.c(89,17): warning C4013: 'fase_2' indefinido; assumindo extern retornando int
+main.obj : error LNK2019: símbolo externo não resolvido, jogo, referenciado na função main
+C:\Users\willi\Downloads\GITHUB-PI-II-Tailandia\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe : fatal error LNK1120: 1 externo não resolvidos

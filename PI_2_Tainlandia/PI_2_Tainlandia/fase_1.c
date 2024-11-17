@@ -3,15 +3,11 @@
 #include <allegro5/allegro_image.h>
 #include "fase_1.h"
 
-<<<<<<< Updated upstream:PI_2_Tainlandia/PI_2_Tainlandia/jogo.c
-void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
-    ALLEGRO_BITMAP* sprite = al_load_bitmap("personagem_jogavel.png");
-    ALLEGRO_BITMAP* background = al_load_bitmap("mapa_fase1.png");
-=======
+
 void fase_1(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* sprite = al_load_bitmap("images/personagem_jogavel.png");
     ALLEGRO_BITMAP* background = al_load_bitmap("images/mapa1_sem_guarda.png");
->>>>>>> Stashed changes:PI_2_Tainlandia/PI_2_Tainlandia/fase_1.c
+
     if (!sprite || !background) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
@@ -80,9 +76,9 @@ void fase_1(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 frame -= 4;
             }
 
-<<<<<<< Updated upstream:PI_2_Tainlandia/PI_2_Tainlandia/jogo.c
+
             //porta 1
-=======
+
             //Primeiro desafio
             if (pos_y < 125 && pos_x > 400 && pos_x < 500) {
                 pos_x = 450;
@@ -93,7 +89,7 @@ void fase_1(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 fase_2(display, event_queue);
             }
 
->>>>>>> Stashed changes:PI_2_Tainlandia/PI_2_Tainlandia/fase_1.c
+
             if (pos_y < 125 && pos_x > 200 && pos_x < 300) {
                 if (contFase == 0) {
                     contFase = 1;
