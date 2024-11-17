@@ -43,13 +43,12 @@ void configuracoes(ALLEGRO_EVENT_QUEUE* event_queue, ALLEGRO_SAMPLE_INSTANCE* mu
                 if (Volume == 1) {
                     // Diminuir o volume (volume = 0)
                     Volume = 0;  // Som mudo
-               
                     al_draw_bitmap(tela_som_off, 0, 0, 0);  // Trocar a imagem para "Som OFF"
                 }
                 else {
                     // Aumentar o volume (volume = 1)
                     Volume = 1;  // Som máximo
-            
+
                     al_draw_bitmap(tela_som_on, 0, 0, 0);   // Trocar a imagem para "Som ON"
                 }
             }
@@ -66,4 +65,6 @@ void configuracoes(ALLEGRO_EVENT_QUEUE* event_queue, ALLEGRO_SAMPLE_INSTANCE* mu
 
     al_destroy_bitmap(tela_som_off);  // Limpeza da imagem de fundo
     al_destroy_bitmap(tela_som_on);  // Limpeza da imagem de fundo
-}
+
+ }
+

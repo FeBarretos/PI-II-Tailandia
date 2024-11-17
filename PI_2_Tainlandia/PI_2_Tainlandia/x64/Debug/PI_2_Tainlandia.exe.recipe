@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< Updated upstream
       <FullPath>C:\Users\willi\Downloads\GITHUB-PI-II-Tailandia\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe</FullPath>
+=======
+      <FullPath>C:\Users\barre\Documents\GitHub\PI-II-Tailandia\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe</FullPath>
+>>>>>>> Stashed changes
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
