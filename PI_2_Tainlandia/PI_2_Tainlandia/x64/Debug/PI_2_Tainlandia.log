@@ -1,5 +1,11 @@
-﻿  fase_2.c
-C:\Users\william.ktakahashi\source\repos\PI-II-Tailandia-Teste_de_movimenta-o\PI_2_Tainlandia\PI_2_Tainlandia\fase_2.c(75,17): warning C4013: 'fase_3' indefinido; assumindo extern retornando int
+﻿  configuracoes.c
+  fase_2.c
   fase_3.c
+C:\Users\barre\Documents\GitHub\PI-II-Tailandia\PI_2_Tainlandia\PI_2_Tainlandia\fase_2.c(75,17): warning C4013: 'fase_3' indefinido; assumindo extern retornando int
+  jogo.c
+C:\Users\barre\Documents\GitHub\PI-II-Tailandia\PI_2_Tainlandia\PI_2_Tainlandia\jogo.c(79,17): warning C4013: 'fase_2' indefinido; assumindo extern retornando int
+  main.c
+  tela_inicio.c
   Gerando Código...
-  PI_2_Tainlandia.vcxproj -> C:\Users\william.ktakahashi\source\repos\PI-II-Tailandia-Teste_de_movimenta-o\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe
+  PI_2_Tainlandia.cpp
+  PI_2_Tainlandia.vcxproj -> C:\Users\barre\Documents\GitHub\PI-II-Tailandia\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe
