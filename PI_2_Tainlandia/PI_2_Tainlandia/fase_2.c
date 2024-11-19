@@ -13,8 +13,9 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* vida = al_load_bitmap("vida_coracao.png");
     ALLEGRO_BITMAP* questaovaca = al_load_bitmap("questao1coliseu.png");
     ALLEGRO_BITMAP* questaocavalo = al_load_bitmap("questao2coliseu.png");
+    ALLEGRO_BITMAP* cavalo = al_load_bitmap("cavalo.png");
 
-    if (!sprite || !background || !vaca || !vida || !questaovaca || !questaocavalo) {
+    if (!sprite || !background || !vaca || !vida || !questaovaca || !questaocavalo || !cavalo) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
     }
@@ -36,6 +37,9 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     // contador de vida e de erro
     extern int contVida;
     int contFase = 0;
+    
+    int percavalo = 0;
+    int pervaca = 0;
 
     //controle de pergurnta
     bool perguntavaca = false;
@@ -97,7 +101,8 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     // Verificar se o clique foi sobre o botão "reposta 2"
                     else if (mouse_sobre_botao(mouse_x, mouse_y, botao_r2_x, botao_r2_y, largura_botao, altura_botao)) {
                         printf("bb");
-                        contFase = 1;
+                        contFase ++;
+                        pervaca++;
                         perguntavaca = false;
                         pos_x = 450;
                     }
@@ -136,7 +141,8 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     printf("cc");
                     pos_x = 450;
                     perguntacavalo = false;
-                    contFase = 2;
+                    contFase ++;
+                    percavalo++;
                 }
                 // Verificar se o clique foi sobre o botão "reposta 4 do cavalo"
                 else if (mouse_sobre_botao(mouse_x, mouse_y, botao_r4_x, botao_r4_y, largura_botao, altura_botao)) {
@@ -183,7 +189,8 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             }
             //fim colisão
             //colisão após acertar a pergunta 1
-            if (contFase == 1) {
+            
+            if (pervaca == 1) {
                 if (pos_x >= 200 && pos_x < 700) {
                     pos_y = 400;
                 }
@@ -192,6 +199,18 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 }
                 if (pos_x >= 680) {
                     pos_x = 680;
+                }
+            }
+            //apos responder  a peregunta do cavalo
+            if (percavalo == 1) {
+                if (pos_x >= 200 && pos_x < 700) {
+                    pos_y = 400;
+                }
+                else {
+                    pos_y = 420;
+                }
+                if (pos_x <= 190) {
+                    pos_x = 190;
                 }
             }
 
@@ -252,22 +271,30 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             float escala_xvaca = 0.35f; // % do tamanho original
             float escala_yvaca = 0.40f; // % do tamanho original
 
+            
+
             // Obter as dimensões da imagem original
             int largura_coracao = al_get_bitmap_width(vida);
             int altura_coracao = al_get_bitmap_height(vida);
             int largura_vaca = al_get_bitmap_width(vaca);
             int altura_vaca = al_get_bitmap_height(vaca);
+            int largura_cavalo = al_get_bitmap_width(cavalo);
+            int altura_cavalo =   al_get_bitmap_height(cavalo);
 
             // Coordenadas para onde a imagem será desenhada
             float x = 5;  // Posição X
             float y = 20;  // Posição Y
             float xvaca = 750;  // Posição X
             float yvaca = 350;  // Posição Y
+            float xcavalo = 30;  // Posição X
+            
 
             // Desenha o coração com a escala definida
             al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
             // Desenha a vaca com a escala definida
             al_draw_scaled_bitmap(vaca, 0, 0, largura_vaca, altura_vaca, xvaca, yvaca, largura_vaca * escala_xvaca, altura_vaca * escala_yvaca, 0);
+            // Desenha o cavalo com a escala definida
+            al_draw_scaled_bitmap(cavalo, 0, 0, largura_cavalo, altura_cavalo, xcavalo, yvaca, largura_cavalo* escala_xvaca, altura_cavalo* escala_yvaca, 0);
 
             al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
             al_flip_display();
@@ -283,5 +310,6 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_font(fonte);
     al_destroy_bitmap(questaovaca);
     al_destroy_bitmap(questaocavalo);
+    al_destroy_bitmap(cavalo);
 
 }

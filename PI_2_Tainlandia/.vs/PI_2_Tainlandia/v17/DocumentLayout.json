@@ -56,7 +56,7 @@
               "RelativeDocumentMoniker": "PI_2_Tainlandia\\fase_2.c",
               "ToolTip": "C:\\Users\\willi\\Downloads\\GITHUB-PI-II-Tailandia\\PI_2_Tainlandia\\PI_2_Tainlandia\\fase_2.c",
               "RelativeToolTip": "PI_2_Tainlandia\\fase_2.c",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAAwH4AAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAAwLUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-11-17T15:04:14.187Z",
               "EditorCaption": ""
@@ -71,8 +71,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\configuracoes.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-20T22:15:55.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T22:15:55.534Z"
             },
             {
               "$type": "Document",
@@ -96,8 +95,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\jogo.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-22T18:03:10.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T18:03:10.946Z"
             },
             {
               "$type": "Document",
@@ -109,8 +107,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\jogo.c",
               "ViewState": "AgIAAJ8AAAAAAAAAAAAAAJoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-22T18:03:41.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T18:03:41.224Z"
             },
             {
               "$type": "Document",
@@ -122,8 +119,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\tela_inicio.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-22T18:02:36.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T18:02:36.674Z"
             },
             {
               "$type": "Document",
@@ -135,8 +131,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\tela_inicio.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-22T18:01:57.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T18:01:57.974Z"
             },
             {
               "$type": "Document",
@@ -148,8 +143,7 @@
               "RelativeToolTip": "PI_2_Tainlandia\\main.c",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-22T17:59:09.785Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T17:59:09.785Z"
             }
           ]
         }
