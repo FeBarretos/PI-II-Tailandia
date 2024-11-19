@@ -30,7 +30,11 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
     //controle de pergunta
     bool question = false;
+    bool press_enter = false;
+    bool ganhou = false;
 
+    //contador de vida
+    extern int contVida;
 
     float frame = 0.f;
     int pos_x = 450, pos_y = 400;
@@ -52,8 +56,8 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 case ALLEGRO_KEY_LEFT: key[1] = 1; current_frame_y = 91; break;
                 case ALLEGRO_KEY_DOWN: key[2] = 1; current_frame_y = 0; break;
                 case ALLEGRO_KEY_UP: key[3] = 1; current_frame_y = 273; break;
-                case ALLEGRO_KEY_ENTER: key[4] = 1; break;
-
+                case ALLEGRO_KEY_ENTER: press_enter = true, question = false; break;
+                case ALLEGRO_KEY_2: ganhou = true;
                 }
             }
             else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
@@ -62,6 +66,7 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 case ALLEGRO_KEY_LEFT: key[1] = 0; break;
                 case ALLEGRO_KEY_DOWN: key[2] = 0; break;
                 case ALLEGRO_KEY_UP: key[3] = 0; break;
+               //case ALLEGRO_KEY_ENTER: press_enter = false; break;
                 }
             }
         }
@@ -107,6 +112,13 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 pos_x = 450;
             }
 
+            if (ganhou) {
+                for (int i = 0; i < 3; i++)
+                    contVida--;
+                if (contVida <= 0) {
+                    playing = false;
+                }
+            }
             al_clear_to_color(al_map_rgb(255, 255, 255));
             al_draw_bitmap(background, 0, 0, 0);
 
@@ -114,6 +126,11 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 al_draw_bitmap(pergunta, 250, 400, 0);
                 char question[] = "Aperte 'Enter' para falar";
                 al_draw_text(fonte, al_map_rgb(255, 255, 255), 480, 450, ALLEGRO_ALIGN_CENTER, question);
+            }
+            if (press_enter) {
+                al_draw_bitmap(pergunta, 250, 400, 0);
+                char question1[] = "qual o resultado de 1 + 1?";
+                al_draw_text(fonte, al_map_rgb(255, 255, 255), 480, 450, ALLEGRO_ALIGN_CENTER, question1);
             }
 
             al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
@@ -128,4 +145,5 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(background);
     al_destroy_bitmap(pergunta);
     al_destroy_font(fonte);
+
 }
