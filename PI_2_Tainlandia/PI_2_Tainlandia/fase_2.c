@@ -101,10 +101,9 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     // Verificar se o clique foi sobre o botão "reposta 2"
                     else if (mouse_sobre_botao(mouse_x, mouse_y, botao_r2_x, botao_r2_y, largura_botao, altura_botao)) {
                         printf("bb");
-                        contFase ++;
-                        pervaca++;
-                        perguntavaca = false;
+                        contVida--;
                         pos_x = 450;
+                        perguntavaca = false;
                     }
                     // Verificar se o clique foi sobre o botão "reposta 3"
                     else if (mouse_sobre_botao(mouse_x, mouse_y, botao_r3_x, botao_r3_y, largura_botao, altura_botao)) {
@@ -116,9 +115,10 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     // Verificar se o clique foi sobre o botão "reposta 4"
                     else if (mouse_sobre_botao(mouse_x, mouse_y, botao_r4_x, botao_r4_y, largura_botao, altura_botao)) {
                         printf("dd");
-                        contVida--;
                         pos_x = 450;
                         perguntavaca = false;
+                        contFase++;
+                        pervaca++;
                     }
                 }
                 else if (perguntacavalo) {
@@ -139,17 +139,17 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 // Verificar se o clique foi sobre o botão "reposta 3 do cavalo"
                 else if (mouse_sobre_botao(mouse_x, mouse_y, botao_r3_x, botao_r3_y, largura_botao, altura_botao)) {
                     printf("cc");
+                    contVida--;
                     pos_x = 450;
                     perguntacavalo = false;
-                    contFase ++;
-                    percavalo++;
                 }
                 // Verificar se o clique foi sobre o botão "reposta 4 do cavalo"
                 else if (mouse_sobre_botao(mouse_x, mouse_y, botao_r4_x, botao_r4_y, largura_botao, altura_botao)) {
                     printf("dd");
-                    contVida--;
                     pos_x = 450;
                     perguntacavalo = false;
+                    contFase++;
+                    percavalo++;
                     }
                 }
 

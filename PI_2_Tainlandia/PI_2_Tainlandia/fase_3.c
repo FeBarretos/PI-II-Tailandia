@@ -72,6 +72,9 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             }
 
 
+
+
+
             al_clear_to_color(al_map_rgb(255, 255, 255));
             al_draw_bitmap(background, 0, 0, 0);
             al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
