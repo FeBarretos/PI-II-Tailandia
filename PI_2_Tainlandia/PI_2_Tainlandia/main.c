@@ -10,6 +10,7 @@
 #include <allegro5/allegro_acodec.h>
 #include "tela_inicio.h"
 #include "jogo.h"
+#include "fase_2.h"
 
 // Variável da vida
 int contVida = 3;
