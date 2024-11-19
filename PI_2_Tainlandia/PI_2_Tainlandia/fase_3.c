@@ -10,7 +10,8 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* sprite = al_load_bitmap("personagem_jogavel.png");
     ALLEGRO_BITMAP* background = al_load_bitmap("mapa_cosmo-dodecaedro.png");
     ALLEGRO_BITMAP* pergunta = al_load_bitmap("dialogo.png");
-    if (!sprite || !background || !pergunta) {
+    ALLEGRO_BITMAP* tfinal = al_load_bitmap("telafinal.png");
+    if (!sprite || !background || !pergunta || !tfinal) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
     }
@@ -19,6 +20,12 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
         fprintf(stderr, "Falha ao carregar a fonte\n");
         return;
     }
+
+    //controle da tela final
+    bool terminou = true;
+
+    //controle de enter
+    int acabar = 0;
 
     // Obter dimensões do sprite
     int sprite_width = 60; // largura do sprite
@@ -56,17 +63,28 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 case ALLEGRO_KEY_LEFT: key[1] = 1; current_frame_y = 91; break;
                 case ALLEGRO_KEY_DOWN: key[2] = 1; current_frame_y = 0; break;
                 case ALLEGRO_KEY_UP: key[3] = 1; current_frame_y = 273; break;
-                case ALLEGRO_KEY_ENTER: press_enter = true, question = false; break;
+                case ALLEGRO_KEY_ENTER: 
+                    
+                    
+                    if (acabar == 0) {
+                        press_enter = true, question = false, acabar++ ; break;
+                    }
+                    
+                    else if (acabar == 1) {
+                        contVida = 0;
+                    }
+
                 case ALLEGRO_KEY_2: ganhou = true;
                 }
             }
+            
             else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
                 switch (ev.keyboard.keycode) {
                 case ALLEGRO_KEY_RIGHT: key[0] = 0; break;
                 case ALLEGRO_KEY_LEFT: key[1] = 0; break;
                 case ALLEGRO_KEY_DOWN: key[2] = 0; break;
                 case ALLEGRO_KEY_UP: key[3] = 0; break;
-               //case ALLEGRO_KEY_ENTER: press_enter = false; break;
+                case ALLEGRO_KEY_ENTER: acabar = 1 ; break;
                 }
             }
         }
@@ -113,15 +131,19 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             }
 
             if (ganhou) {
-                for (int i = 0; i < 3; i++)
-                    contVida--;
-                if (contVida <= 0) {
-                    playing = false;
-                }
+                terminou = false;
             }
-            al_clear_to_color(al_map_rgb(255, 255, 255));
-            al_draw_bitmap(background, 0, 0, 0);
+            // Encerra o loop do jogo
+            if (contVida <= 0) {
+                playing = false;
+            }
 
+            al_clear_to_color(al_map_rgb(255, 255, 255));
+            if (terminou) {
+                al_draw_bitmap(background, 0, 0, 0);
+
+
+            
             if (question) {
                 al_draw_bitmap(pergunta, 250, 400, 0);
                 char question[] = "Aperte 'Enter' para falar";
@@ -132,8 +154,12 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 char question1[] = "qual o resultado de 1 + 1?";
                 al_draw_text(fonte, al_map_rgb(255, 255, 255), 480, 450, ALLEGRO_ALIGN_CENTER, question1);
             }
-
+              
             al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
+            }
+            else {
+                al_draw_bitmap(tfinal, 0, 0, 0);
+            }
             al_flip_display();
             last_time = current_time;
 
@@ -145,5 +171,5 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(background);
     al_destroy_bitmap(pergunta);
     al_destroy_font(fonte);
-
+    al_destroy_bitmap(tfinal);
 }

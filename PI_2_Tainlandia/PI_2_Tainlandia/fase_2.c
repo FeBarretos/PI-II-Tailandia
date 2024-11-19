@@ -14,8 +14,10 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* questaovaca = al_load_bitmap("questao1coliseu.png");
     ALLEGRO_BITMAP* questaocavalo = al_load_bitmap("questao2coliseu.png");
     ALLEGRO_BITMAP* cavalo = al_load_bitmap("cavalo.png");
+    
 
-    if (!sprite || !background || !vaca || !vida || !questaovaca || !questaocavalo || !cavalo) {
+
+    if (!sprite || !background || !vaca || !vida || !questaovaca || !questaocavalo) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
     }
@@ -311,5 +313,4 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(questaovaca);
     al_destroy_bitmap(questaocavalo);
     al_destroy_bitmap(cavalo);
-
 }
