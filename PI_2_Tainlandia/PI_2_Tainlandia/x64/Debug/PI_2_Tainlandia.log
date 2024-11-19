@@ -1,4 +1,2 @@
-﻿  fase_2.c
-C:\Users\willi\Downloads\GITHUB-PI-II-Tailandia\PI_2_Tainlandia\PI_2_Tainlandia\fase_2.c(95,25): warning C4013: 'mouse_sobre_botao' indefinido; assumindo extern retornando int
-C:\Users\willi\Downloads\GITHUB-PI-II-Tailandia\PI_2_Tainlandia\PI_2_Tainlandia\fase_2.c(240,17): warning C4013: 'fase_3' indefinido; assumindo extern retornando int
+﻿  fase_3.c
   PI_2_Tainlandia.vcxproj -> C:\Users\willi\Downloads\GITHUB-PI-II-Tailandia\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe

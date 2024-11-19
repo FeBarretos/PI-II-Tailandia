@@ -2,13 +2,21 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include "fase_3.h"
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
 
 // Função da Fase 3
 void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* sprite = al_load_bitmap("personagem_jogavel.png");
-    ALLEGRO_BITMAP* background = al_load_bitmap("mapa1.png");
-    if (!sprite || !background) {
+    ALLEGRO_BITMAP* background = al_load_bitmap("mapa_cosmo-dodecaedro.png");
+    ALLEGRO_BITMAP* pergunta = al_load_bitmap("dialogo.png");
+    if (!sprite || !background || !pergunta) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
+        return;
+    }
+    ALLEGRO_FONT* fonte = al_load_ttf_font("LiberationSans-Regular.ttf", 30, 0);
+    if (!fonte) {
+        fprintf(stderr, "Falha ao carregar a fonte\n");
         return;
     }
 
@@ -19,6 +27,10 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     // Dimensões do display
     int display_width = al_get_display_width(display);
     int display_height = al_get_display_height(display);
+
+    //controle de pergunta
+    bool question = false;
+
 
     float frame = 0.f;
     int pos_x = 450, pos_y = 400;
@@ -40,6 +52,8 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 case ALLEGRO_KEY_LEFT: key[1] = 1; current_frame_y = 91; break;
                 case ALLEGRO_KEY_DOWN: key[2] = 1; current_frame_y = 0; break;
                 case ALLEGRO_KEY_UP: key[3] = 1; current_frame_y = 273; break;
+                case ALLEGRO_KEY_ENTER: key[4] = 1; break;
+
                 }
             }
             else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
@@ -71,12 +85,37 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 frame -= 4;
             }
 
+            //colisão 
+            if (pos_y <= 275) {
+                pos_y = 275;
+            }
 
+            if (pos_x <= 375) {
+                pos_x = 375;
+            }
 
+            if (pos_x >= 535) {
+                pos_x = 535;
+            }
 
+            if (pos_y > 0 && pos_y <= 290) {
+                question = true;
+            }
+
+            if (question) {
+                pos_y = 290;
+                pos_x = 450;
+            }
 
             al_clear_to_color(al_map_rgb(255, 255, 255));
             al_draw_bitmap(background, 0, 0, 0);
+
+            if (question) {
+                al_draw_bitmap(pergunta, 250, 400, 0);
+                char question[] = "Aperte 'Enter' para falar";
+                al_draw_text(fonte, al_map_rgb(255, 255, 255), 480, 450, ALLEGRO_ALIGN_CENTER, question);
+            }
+
             al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
             al_flip_display();
             last_time = current_time;
@@ -87,4 +126,6 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
     al_destroy_bitmap(sprite);
     al_destroy_bitmap(background);
+    al_destroy_bitmap(pergunta);
+    al_destroy_font(fonte);
 }
