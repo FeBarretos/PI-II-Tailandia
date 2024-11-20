@@ -1,5 +1,3 @@
-﻿  fase_2.c
-C:\Users\william.ktakahashi\source\repos\PI-II-Tailandia-Teste_de_movimenta-o\PI_2_Tainlandia\PI_2_Tainlandia\fase_2.c(75,17): warning C4013: 'fase_3' indefinido; assumindo extern retornando int
-  fase_3.c
-  Gerando Código...
-  PI_2_Tainlandia.vcxproj -> C:\Users\william.ktakahashi\source\repos\PI-II-Tailandia-Teste_de_movimenta-o\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe
+﻿  tela_inicio.c
+C:\Users\fernando.bsilva33\source\repos\PI-II-Tailandia-JOGO-COM-TELA-DE-FINAL\PI_2_Tainlandia\PI_2_Tainlandia\tela_inicio.c(68,28): warning C4133: 'função': tipos incompatíveis - de 'ALLEGRO_BITMAP *' para 'ALLEGRO_DISPLAY *'
+  PI_2_Tainlandia.vcxproj -> C:\Users\fernando.bsilva33\source\repos\PI-II-Tailandia-JOGO-COM-TELA-DE-FINAL\PI_2_Tainlandia\x64\Debug\PI_2_Tainlandia.exe
