@@ -4,6 +4,7 @@
 #include <allegro5/allegro_image.h>
 #include "tela_inicio.h"
 #include "configuracoes.h"
+#include "como_jogar.h"
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
 
@@ -15,7 +16,7 @@ bool mouse_sobre_botao(int mouse_x, int mouse_y, int botao_x, int botao_y, int l
 
 bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
     // Carregar a imagem de fundo
-    ALLEGRO_BITMAP* fundo = al_load_bitmap("tela_de_inicio.png");
+    ALLEGRO_BITMAP* fundo = al_load_bitmap("tela inicial.png");
     if (!fundo) {
         fprintf(stderr, "Falha ao carregar a imagem de fundo\n");
         return false;
@@ -31,9 +32,10 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
     int largura_botao = 100, altura_botao = 40;
 
     // Coordenadas dos botões na imagem
-    int botao_play_x = 415, botao_play_y = 190; // Coordenadas do botão "Play"
-    int botao_settings_x = 415, botao_settings_y = 260; // Coordenadas do botão "Settings"
-    int botao_quit_x = 415, botao_quit_y = 330; // Coordenadas do botão "Quit"
+    int botao_play_x = 365, botao_play_y = 200;
+    int botao_settings_x = 365, botao_settings_y = 270;
+    int botao_como_jogar_x = 365, botao_como_jogar_y = 340;
+    int botao_quit_x = 365, botao_quit_y = 410;
 
     bool iniciar_jogo = false;
     bool rodando = true;
@@ -62,6 +64,9 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
             else if (mouse_sobre_botao(mouse_x, mouse_y, botao_settings_x, botao_settings_y, largura_botao, altura_botao)) {
                 configuracoes(event_queue);  // Abre o menu de configurações
             }
+            else if (mouse_sobre_botao(mouse_x, mouse_y, botao_como_jogar_x, botao_como_jogar_y, largura_botao, altura_botao)) {
+                como_jogar(fundo, event_queue);  // Passar o display corretamente
+            }
             // Verificar se o clique foi sobre o botão "Quit"
             else if (mouse_sobre_botao(mouse_x, mouse_y, botao_quit_x, botao_quit_y, largura_botao, altura_botao)) {
                 rodando = false;  // Fecha o programa
@@ -76,5 +81,6 @@ bool tela_inicio(ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(fundo);  // Limpeza da imagem de fundo
     al_destroy_sample(music);
     al_destroy_sample_instance(musicInst);
+
     return iniciar_jogo;
 }

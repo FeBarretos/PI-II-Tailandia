@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="como_jogar.c" />
     <ClCompile Include="configuracoes.c" />
     <ClCompile Include="fase_2.c" />
     <ClCompile Include="fase_3.c" />
@@ -153,6 +154,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="como_jogar.h" />
     <ClInclude Include="configuracoes.h" />
     <ClInclude Include="fase_2.h" />
     <ClInclude Include="fase_3.h" />
