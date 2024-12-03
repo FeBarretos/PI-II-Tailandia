@@ -39,6 +39,11 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     // contador de vida e de erro
     extern int contVida;
     int contFase = 0;
+
+    // controle dos desenhos de vida
+    bool coracao1 = true;
+    bool coracao2 = true;
+    bool coracao3 = true;
     
     int percavalo = 0;
     int pervaca = 0;
@@ -64,12 +69,13 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
 
    
-    bool playing = true;
-    while (playing) {
+    bool playing1 = true;
+    while (playing1) {
         ALLEGRO_EVENT ev;
         while (al_get_next_event(event_queue, &ev)) {
             if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-                playing = false;
+                playing1 = false;
+                
             }
             else if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
                 switch (ev.keyboard.keycode) {
@@ -244,7 +250,7 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
             // Encerra o loop do jogo
             if (contVida <= 0) {
-                playing = false;
+                playing1 = false;
             }
 
 
@@ -261,10 +267,7 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 al_draw_bitmap(questaocavalo, 0, 0, 0);
             }
 
-            // Exibir texto das vidas
-            char textoVidas[50];
-            snprintf(textoVidas, 50, "        X %d", contVida);
-            al_draw_text(fonte, al_map_rgb(255, 0, 0), 5, 45, ALLEGRO_ALIGN_LEFT, textoVidas);
+            
             
             // Definir o tamanho desejado 
             float escala_x = 0.15f; // % do tamanho original
@@ -284,6 +287,9 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             int altura_cavalo =   al_get_bitmap_height(cavalo);
 
             // Coordenadas para onde a imagem será desenhada
+            float x1 = 10;
+            float x2 = 50;
+            float x3 = 90;  // Posição X
             float x = 5;  // Posição X
             float y = 20;  // Posição Y
             float xvaca = 750;  // Posição X
@@ -291,12 +297,33 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             float xcavalo = 30;  // Posição X
             
 
-            // Desenha o coração com a escala definida
-            al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
+            
             // Desenha a vaca com a escala definida
             al_draw_scaled_bitmap(vaca, 0, 0, largura_vaca, altura_vaca, xvaca, yvaca, largura_vaca * escala_xvaca, altura_vaca * escala_yvaca, 0);
             // Desenha o cavalo com a escala definida
             al_draw_scaled_bitmap(cavalo, 0, 0, largura_cavalo, altura_cavalo, xcavalo, yvaca, largura_cavalo* escala_xvaca, altura_cavalo* escala_yvaca, 0);
+
+            // Desenhar o coração com a escala definida
+
+            if (contVida < 3) {
+                coracao1 = false;
+            }
+
+            if (coracao1) {
+                al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x1, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
+            }
+            else {
+
+            }
+            if (contVida < 2) {
+                coracao2 = false;
+            }
+
+            if (coracao2) {
+                al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x2, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
+            }
+
+            al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x3, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
 
             al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
             al_flip_display();
@@ -313,4 +340,5 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(questaovaca);
     al_destroy_bitmap(questaocavalo);
     al_destroy_bitmap(cavalo);
+    
 }

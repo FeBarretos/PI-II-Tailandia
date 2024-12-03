@@ -11,6 +11,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* background = al_load_bitmap("mapa1_bhaskara.png");
     ALLEGRO_BITMAP* vida = al_load_bitmap("vida_coracao.png");
     ALLEGRO_BITMAP* caixa_dialogo = al_load_bitmap("caixa_dialogo.png");
+    ALLEGRO_BITMAP* comojogar = al_load_bitmap("comojogar.png");
     if (!sprite || !background || !vida || !caixa_dialogo) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
@@ -24,6 +25,13 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     // contador de vida e de erro
     extern int contVida;
     int contFase = 0;
+
+    // controle dos desenhos de vida
+    bool coracao1 = true;
+    bool coracao2 = true;
+    bool coracao3 = true;
+
+    
 
     // controle de pergunta
     bool mostrando_pergunta = false;
@@ -367,10 +375,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 al_draw_text(fonte, al_map_rgb(0, 0, 0), 590, 365, ALLEGRO_ALIGN_CENTER, reposta9);
             }
 
-            // Exibir texto das vidas
-            char textoVidas[50];
-            snprintf(textoVidas, 50, "        X %d", contVida);
-            al_draw_text(fonte, al_map_rgb(255, 0, 0), 5, 35, ALLEGRO_ALIGN_LEFT, textoVidas);
+            
 
             // Definir o tamanho desejado para o coração
             float escala_x = 0.15f; // 20% do tamanho original
@@ -381,13 +386,32 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             int altura_coracao = al_get_bitmap_height(vida);
 
             // Coordenadas para onde a imagem será desenhada
-            float x = 10;  // Posição X
+            float x1 = 10;
+            float x2 = 50;
+            float x3 = 90;  // Posição X
             float y = 5;  // Posição Y
 
             // Desenhar o coração com a escala definida
-            al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
 
+            if (contVida < 3) {
+                coracao1 = false;
+            }
 
+            if (coracao1) { 
+                al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x1, y, largura_coracao * escala_x, altura_coracao * escala_y, 0); 
+            }
+            else {
+
+            }
+            if (contVida < 2) {
+                coracao2 = false;
+            }
+           
+            if (coracao2) {
+                al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x2, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
+            }
+
+            al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x3, y, largura_coracao* escala_x, altura_coracao* escala_y, 0);
 
             al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
             al_flip_display();
@@ -399,5 +423,7 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(sprite);
     al_destroy_bitmap(background);
     al_destroy_bitmap(caixa_dialogo);
+    al_destroy_bitmap(comojogar);
     al_destroy_font(fonte);
+    
 }

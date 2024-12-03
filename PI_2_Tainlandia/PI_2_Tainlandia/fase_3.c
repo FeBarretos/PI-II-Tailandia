@@ -10,8 +10,10 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* sprite = al_load_bitmap("personagem_jogavel.png");
     ALLEGRO_BITMAP* background = al_load_bitmap("mapa_cosmo-dodecaedro.png");
     ALLEGRO_BITMAP* pergunta = al_load_bitmap("dialogo.png");
+    ALLEGRO_BITMAP* dialogo = al_load_bitmap("dialogo1.png");
     ALLEGRO_BITMAP* tfinal = al_load_bitmap("telafinal.png");
-    if (!sprite || !background || !pergunta || !tfinal) {
+    ALLEGRO_BITMAP* vida = al_load_bitmap("vida_coracao.png");
+    if (!sprite || !background || !pergunta || !tfinal || !vida) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
     }
@@ -43,6 +45,12 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     //contador de vida
     extern int contVida;
 
+    // controle dos desenhos de vida
+    bool coracao1 = true;
+    bool coracao2 = true;
+    bool coracao3 = true;
+
+
     float frame = 0.f;
     int pos_x = 450, pos_y = 400;
     int current_frame_y = 210;
@@ -73,8 +81,11 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                     else if (acabar == 1) {
                         contVida = 0;
                     }
-
-                case ALLEGRO_KEY_2: ganhou = true;
+                case ALLEGRO_KEY_2:
+                    if(0 < 1) {
+                    ganhou = true;
+                }
+                    
                 }
             }
             
@@ -137,6 +148,20 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             if (contVida <= 0) {
                 playing = false;
             }
+            
+            // Definir o tamanho desejado para o coração
+            float escala_x = 0.15f; // 20% do tamanho original
+            float escala_y = 0.15f; // 20% do tamanho original
+
+            // Obter as dimensões da imagem original
+            int largura_coracao = al_get_bitmap_width(vida);
+            int altura_coracao = al_get_bitmap_height(vida);
+
+            // Coordenadas para onde a imagem será desenhada
+            float x1 = 10;
+            float x2 = 50;
+            float x3 = 90;  // Posição X
+            float y = 5;  // Posição Y
 
             al_clear_to_color(al_map_rgb(255, 255, 255));
             if (terminou) {
@@ -145,16 +170,35 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
             
             if (question) {
-                al_draw_bitmap(pergunta, 250, 400, 0);
+                al_draw_bitmap(dialogo, 250, 400, 0);
                 char question[] = "Aperte 'Enter' para falar";
-                al_draw_text(fonte, al_map_rgb(255, 255, 255), 480, 450, ALLEGRO_ALIGN_CENTER, question);
+                al_draw_text(fonte, al_map_rgb(0, 0, 0), 480, 450, ALLEGRO_ALIGN_CENTER, question);
             }
             if (press_enter) {
                 al_draw_bitmap(pergunta, 250, 400, 0);
-                char question1[] = "qual o resultado de 1 + 1?";
-                al_draw_text(fonte, al_map_rgb(255, 255, 255), 480, 450, ALLEGRO_ALIGN_CENTER, question1);
+                
             }
               
+            if (contVida < 3) {
+                coracao1 = false;
+            }
+
+            if (coracao1) {
+                al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x1, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
+            }
+            else {
+
+            }
+            if (contVida < 2) {
+                coracao2 = false;
+            }
+
+            if (coracao2) {
+                al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x2, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
+            }
+
+            al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x3, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
+
             al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
             }
             else {
@@ -172,4 +216,7 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(pergunta);
     al_destroy_font(fonte);
     al_destroy_bitmap(tfinal);
+    al_destroy_bitmap(vida);
+    al_destroy_bitmap(dialogo);
+    
 }
