@@ -24,10 +24,7 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
         return;
     }
 
-    //controle da tela final
-    bool terminou = true;
 
-    
 
     // Obter dimensões do sprite
     int sprite_width = 60; // largura do sprite
@@ -39,8 +36,7 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
     //controle de pergunta
     bool question = false;
-    bool press_enter = false;
-    bool ganhou = false;
+   
 
     //contador de vida
     extern int contVida;
@@ -153,18 +149,18 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             }
             
             // Definir o tamanho desejado para o coração
-            float escala_x = 0.15f; // 20% do tamanho original
-            float escala_y = 0.15f; // 20% do tamanho original
+            float escala_x = 0.15f; // % do tamanho original
+            float escala_y = 0.15f; // % do tamanho original
 
             // Obter as dimensões da imagem original
             int largura_coracao = al_get_bitmap_width(vida);
             int altura_coracao = al_get_bitmap_height(vida);
 
             // Coordenadas para onde a imagem será desenhada
-            float x1 = 10;
-            float x2 = 50;
-            float x3 = 90;  // Posição X
-            float y = 5;  // Posição Y
+            float x1 = 10;  // Posição X coracao 1
+            float x2 = 50;  // Posição X coracao 2
+            float x3 = 90;  // Posição X coracao 3
+            float y = 5;  // Posição Y dos corações
 
             al_clear_to_color(al_map_rgb(255, 255, 255));
             
