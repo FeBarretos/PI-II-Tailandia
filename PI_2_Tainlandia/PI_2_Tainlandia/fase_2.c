@@ -14,8 +14,7 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* questaovaca = al_load_bitmap("questao1coliseu.png");
     ALLEGRO_BITMAP* questaocavalo = al_load_bitmap("questao2coliseu.png");
     ALLEGRO_BITMAP* cavalo = al_load_bitmap("cavalo.png");
-    
-
+    ALLEGRO_BITMAP* comojogar = al_load_bitmap("comojogar_mapacoliseu.png");
 
     if (!sprite || !background || !vaca || !vida || !questaovaca || !questaocavalo) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
@@ -27,6 +26,8 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
         return;
     }
 
+    //controle tela
+    int tela = 0;
 
     // Obter dimensões do sprite
     int sprite_width = 60; // largura do sprite
@@ -83,6 +84,10 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 case ALLEGRO_KEY_LEFT: key[1] = 1; current_frame_y = 91; break;
                 case ALLEGRO_KEY_DOWN: key[2] = 1; current_frame_y = 0; break;
                 case ALLEGRO_KEY_UP: key[3] = 1; current_frame_y = 273; break;
+                case ALLEGRO_KEY_ENTER:
+                    if ( tela == 0 ) {
+                        tela = 1;
+                    }
                 }
             }
             else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
@@ -255,7 +260,12 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
 
             al_clear_to_color(al_map_rgb(255, 255, 255));
-            al_draw_bitmap(background, 0, 0, 0);
+            if ( tela == 0 ) {
+                al_draw_bitmap(comojogar, 0, 0, 0);
+            }
+            else if (tela == 1) {
+                al_draw_bitmap(background, 0, 0, 0);
+            }
 
             //questão da vaca
             if (perguntavaca) {
@@ -299,9 +309,13 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
             
             // Desenha a vaca com a escala definida
-            al_draw_scaled_bitmap(vaca, 0, 0, largura_vaca, altura_vaca, xvaca, yvaca, largura_vaca * escala_xvaca, altura_vaca * escala_yvaca, 0);
+            if (tela == 1) {
+                al_draw_scaled_bitmap(vaca, 0, 0, largura_vaca, altura_vaca, xvaca, yvaca, largura_vaca * escala_xvaca, altura_vaca * escala_yvaca, 0);
+            }
             // Desenha o cavalo com a escala definida
-            al_draw_scaled_bitmap(cavalo, 0, 0, largura_cavalo, altura_cavalo, xcavalo, yvaca, largura_cavalo* escala_xvaca, altura_cavalo* escala_yvaca, 0);
+            if (tela == 1) {
+                al_draw_scaled_bitmap(cavalo, 0, 0, largura_cavalo, altura_cavalo, xcavalo, yvaca, largura_cavalo * escala_xvaca, altura_cavalo * escala_yvaca, 0);
+            }
 
             // Desenhar o coração com a escala definida
 
@@ -325,7 +339,9 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
             al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x3, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
 
-            al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
+            if (tela == 1) { 
+                al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
+            }
             al_flip_display();
             last_time = current_time;
 
@@ -340,5 +356,6 @@ void fase_2(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(questaovaca);
     al_destroy_bitmap(questaocavalo);
     al_destroy_bitmap(cavalo);
+    al_destroy_bitmap(comojogar);
     
 }

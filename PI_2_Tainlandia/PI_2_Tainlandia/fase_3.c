@@ -13,6 +13,7 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* dialogo = al_load_bitmap("dialogo1.png");
     ALLEGRO_BITMAP* tfinal = al_load_bitmap("telafinal.png");
     ALLEGRO_BITMAP* vida = al_load_bitmap("vida_coracao.png");
+    ALLEGRO_BITMAP* comojogar = al_load_bitmap("comojogar_poliedros.png");
     if (!sprite || !background || !pergunta || !tfinal || !vida) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
@@ -26,8 +27,7 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     //controle da tela final
     bool terminou = true;
 
-    //controle de enter
-    int acabar = 0;
+    
 
     // Obter dimensões do sprite
     int sprite_width = 60; // largura do sprite
@@ -44,6 +44,7 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
     //contador de vida
     extern int contVida;
+    int tela = 0;
 
     // controle dos desenhos de vida
     bool coracao1 = true;
@@ -72,21 +73,25 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 case ALLEGRO_KEY_DOWN: key[2] = 1; current_frame_y = 0; break;
                 case ALLEGRO_KEY_UP: key[3] = 1; current_frame_y = 273; break;
                 case ALLEGRO_KEY_ENTER: 
-                    
-                    
-                    if (acabar == 0) {
-                        press_enter = true, question = false, acabar++ ; break;
+                    if (tela == 0) {
+                        tela = 1;
                     }
-                    
-                    else if (acabar == 1) {
+                    if (tela == 1 && question) {
+                        tela = 2;
+                    }
+                    if (tela == 3) {
                         contVida = 0;
                     }
-                case ALLEGRO_KEY_2:
-                    if(0 < 1) {
-                    ganhou = true;
-                }
+
+                    break;
                     
-                }
+                    
+                    
+                case ALLEGRO_KEY_2:
+                     if(tela == 2 ) {
+                      tela = 3;
+                  }
+               }
             }
             
             else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
@@ -95,7 +100,6 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 case ALLEGRO_KEY_LEFT: key[1] = 0; break;
                 case ALLEGRO_KEY_DOWN: key[2] = 0; break;
                 case ALLEGRO_KEY_UP: key[3] = 0; break;
-                case ALLEGRO_KEY_ENTER: acabar = 1 ; break;
                 }
             }
         }
@@ -141,9 +145,8 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 pos_x = 450;
             }
 
-            if (ganhou) {
-                terminou = false;
-            }
+            
+
             // Encerra o loop do jogo
             if (contVida <= 0) {
                 playing = false;
@@ -164,21 +167,29 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             float y = 5;  // Posição Y
 
             al_clear_to_color(al_map_rgb(255, 255, 255));
-            if (terminou) {
-                al_draw_bitmap(background, 0, 0, 0);
-
-
             
-            if (question) {
-                al_draw_bitmap(dialogo, 250, 400, 0);
-                char question[] = "Aperte 'Enter' para falar";
-                al_draw_text(fonte, al_map_rgb(0, 0, 0), 480, 450, ALLEGRO_ALIGN_CENTER, question);
-            }
-            if (press_enter) {
-                al_draw_bitmap(pergunta, 250, 400, 0);
-                
-            }
-              
+               
+                if (tela == 0) {
+                    al_draw_bitmap(comojogar, 0, 0, 0);
+                }
+                else if (tela == 1 || tela == 2) {
+                    al_draw_bitmap(background, 0, 0, 0);
+   
+                    if (question) {
+                        al_draw_bitmap(dialogo, 250, 400, 0);
+                        char question[] = "Aperte 'Enter' para falar";
+                        al_draw_text(fonte, al_map_rgb(0, 0, 0), 480, 450, ALLEGRO_ALIGN_CENTER, question);
+                    }
+                    if (tela == 2) {
+                        al_draw_bitmap(pergunta, 250, 400, 0);
+
+                    }
+                }
+                else if (tela == 3) {
+                   al_draw_bitmap(tfinal, 0, 0, 0);
+                }
+         
+            //desenho dos corações  
             if (contVida < 3) {
                 coracao1 = false;
             }
@@ -198,12 +209,12 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             }
 
             al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x3, y, largura_coracao * escala_x, altura_coracao * escala_y, 0);
+            //fim do desenho dos corações
 
-            al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
+            if (tela == 1 || tela == 2 ) { 
+                al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
             }
-            else {
-                al_draw_bitmap(tfinal, 0, 0, 0);
-            }
+            
             al_flip_display();
             last_time = current_time;
 
@@ -218,5 +229,6 @@ void fase_3(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     al_destroy_bitmap(tfinal);
     al_destroy_bitmap(vida);
     al_destroy_bitmap(dialogo);
+    al_destroy_bitmap(comojogar);
     
 }

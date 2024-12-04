@@ -11,7 +11,9 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     ALLEGRO_BITMAP* background = al_load_bitmap("mapa1_bhaskara.png");
     ALLEGRO_BITMAP* vida = al_load_bitmap("vida_coracao.png");
     ALLEGRO_BITMAP* caixa_dialogo = al_load_bitmap("caixa_dialogo.png");
-    ALLEGRO_BITMAP* comojogar = al_load_bitmap("comojogar.png");
+    ALLEGRO_BITMAP* comojogar = al_load_bitmap("comojogar_mapa1.png");
+
+    
     if (!sprite || !background || !vida || !caixa_dialogo) {
         fprintf(stderr, "Falha ao carregar os bitmaps\n");
         return;
@@ -25,6 +27,10 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
     // contador de vida e de erro
     extern int contVida;
     int contFase = 0;
+
+    //Controle de tela
+    int tela = 0;
+
 
     // controle dos desenhos de vida
     bool coracao1 = true;
@@ -86,6 +92,10 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
                 case ALLEGRO_KEY_LEFT: key[1] = 1; current_frame_y = 91; break;
                 case ALLEGRO_KEY_DOWN: key[2] = 1; current_frame_y = 0; break;
                 case ALLEGRO_KEY_UP: key[3] = 1; current_frame_y = 273; break;
+                case ALLEGRO_KEY_ENTER: 
+                    if (tela == 0) {
+                    tela = 1;
+                }
                 }
             }
             else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
@@ -285,8 +295,13 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
             }
 
             al_clear_to_color(al_map_rgb(255, 255, 255));
-            al_draw_bitmap(background, 0, 0, 0);
+            if (tela == 0) {
+                al_draw_bitmap(comojogar, 0, 0, 0);
+            }
 
+            else if (tela == 1) {
+                al_draw_bitmap(background, 0, 0, 0);
+            }
            
             if (mostrando_pergunta) {
                 al_draw_bitmap(caixa_dialogo, 0, 0, 0);
@@ -413,7 +428,10 @@ void jogo(ALLEGRO_DISPLAY* display, ALLEGRO_EVENT_QUEUE* event_queue) {
 
             al_draw_scaled_bitmap(vida, 0, 0, largura_coracao, altura_coracao, x3, y, largura_coracao* escala_x, altura_coracao* escala_y, 0);
 
-            al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
+            if (tela == 1) {
+                al_draw_bitmap_region(sprite, 60 * (int)frame, current_frame_y, sprite_width, sprite_height, pos_x, pos_y, 0);
+            }
+
             al_flip_display();
             last_time = current_time;
 
